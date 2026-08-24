@@ -3,91 +3,443 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Shaadi Budget Control System</title>
-  <meta name="description" content="Plan your wedding budget, compare vendors, track commitments and payments, and see what is actually left.">
+
+  <meta
+    name="description"
+    content="Plan your wedding budget, compare vendors, track commitments and payments, and see what is actually left."
+  >
+
   <link rel="stylesheet" href="style.css">
 
+  <!-- Offer styling -->
+  <style>
+    .launch-offer {
+      margin: 22px 0 18px;
+      padding: 16px 18px;
+      border: 1px solid rgba(167, 126, 43, 0.35);
+      border-radius: 14px;
+      background: #fff9ed;
+    }
+
+    .launch-label {
+      margin-bottom: 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8a5b10;
+    }
+
+    .offer-price-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .regular-price {
+      font-size: 1.05rem;
+      color: #777;
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+    }
+
+    .launch-price {
+      font-size: 1.85rem;
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    .discount-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: #8f1f1f;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .offer-meta {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .offer-countdown {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .countdown-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .countdown-box {
+      min-width: 48px;
+      padding: 7px 8px;
+      border-radius: 8px;
+      background: #1d382c;
+      color: #fff;
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .pricing-offer {
+      margin: 14px 0 18px;
+    }
+
+    .pricing-regular {
+      margin-right: 8px;
+      color: #777;
+      font-size: 1.1rem;
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+    }
+
+    .pricing-discount {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #8f1f1f;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      vertical-align: middle;
+    }
+
+    .offer-end-note {
+      margin-top: 9px;
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 600px) {
+      .launch-price {
+        font-size: 1.6rem;
+      }
+
+      .offer-countdown {
+        gap: 6px;
+      }
+
+      .countdown-box {
+        min-width: 44px;
+        font-size: 0.76rem;
+      }
+    }
+  </style>
+
   <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1090516670585672');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1090516670585672&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {
+      if(f.fbq)return;
+      n=f.fbq=function(){
+        n.callMethod
+          ? n.callMethod.apply(n,arguments)
+          : n.queue.push(arguments)
+      };
+
+      if(!f._fbq)f._fbq=n;
+
+      n.push=n;
+      n.loaded=!0;
+      n.version='2.0';
+      n.queue=[];
+
+      t=b.createElement(e);
+      t.async=!0;
+      t.src=v;
+
+      s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s);
+
+    }(
+      window,
+      document,
+      'script',
+      'https://connect.facebook.net/en_US/fbevents.js'
+    );
+
+    fbq('init', '1090516670585672');
+    fbq('track', 'PageView');
+  </script>
+
+  <noscript>
+    <img
+      height="1"
+      width="1"
+      style="display:none"
+      src="https://www.facebook.com/tr?id=1090516670585672&ev=PageView&noscript=1"
+      alt=""
+    >
+  </noscript>
+  <!-- End Meta Pixel Code -->
 
 </head>
+
 <body>
+
 <header class="topbar">
   <div class="container nav">
-    <div class="brand">Velqora Digital</div>
-    <a href="#pricing" class="mini-cta">Get it for ₹599</a>
+
+    <div class="brand">
+      Velqora Digital
+    </div>
+
+    <a href="#pricing" class="mini-cta">
+      Get it for ₹599
+    </a>
+
   </div>
 </header>
 
+
 <main>
+
+  <!-- HERO -->
   <section class="hero">
     <div class="container hero-grid">
+
       <div class="hero-copy">
-        <div class="eyebrow">INDIAN WEDDING MONEY CONTROL</div>
-        <h1>Your Wedding Budget Is ₹15 Lakh.</h1>
-        <h2 class="hero-sub">But do you know how much is already committed?</h2>
-        <p class="lead">Plan your budget, compare vendor quotes, track bookings and payments, test cost scenarios, and see what is actually left — in one practical Excel system.</p>
-        <div class="flow">Budget → Vendors → Payments → Remaining Money</div>
-        <div class="actions">
-          <a class="btn primary" href="https://payhip.com/buy?link=aXrN8">Get the Complete System — ₹599</a>
-          <a class="btn secondary" href="#proof">See how it works</a>
+
+        <div class="eyebrow">
+          INDIAN WEDDING MONEY CONTROL
         </div>
-        <p class="small">One-time purchase • Instant digital download • Excel-based • Personal-use license</p>
+
+        <h1>
+          Your Wedding Budget Is ₹15 Lakh.
+        </h1>
+
+        <h2 class="hero-sub">
+          But do you know how much is already committed?
+        </h2>
+
+        <p class="lead">
+          Plan your budget, compare vendor quotes, track bookings and payments,
+          test cost scenarios, and see what is actually left — in one practical
+          Excel system.
+        </p>
+
+        <div class="flow">
+          Budget → Vendors → Payments → Remaining Money
+        </div>
+
+
+        <!-- LAUNCH OFFER -->
+        <div class="launch-offer">
+
+          <div class="launch-label">
+            Limited Launch Offer
+          </div>
+
+          <div class="offer-price-row">
+
+            <span class="regular-price">
+              ₹1,499
+            </span>
+
+            <span class="launch-price">
+              ₹599
+            </span>
+
+            <span class="discount-badge">
+              60% OFF
+            </span>
+
+          </div>
+
+          <p class="offer-meta">
+            One-Time Payment • Instant Digital Download
+          </p>
+
+          <div class="offer-countdown">
+
+            <span class="countdown-label">
+              Launch offer ends in:
+            </span>
+
+            <span class="countdown-box">
+              <span id="days">00</span>d
+            </span>
+
+            <span class="countdown-box">
+              <span id="hours">00</span>h
+            </span>
+
+            <span class="countdown-box">
+              <span id="minutes">00</span>m
+            </span>
+
+            <span class="countdown-box">
+              <span id="seconds">00</span>s
+            </span>
+
+          </div>
+
+          <div class="offer-end-note">
+            Offer deadline: 27 August 2026, 11:59 PM IST
+          </div>
+
+        </div>
+
+
+        <div class="actions">
+
+          <a
+            class="btn primary"
+            href="https://payhip.com/buy?link=aXrN8"
+          >
+            Get the Complete System — ₹599
+          </a>
+
+          <a
+            class="btn secondary"
+            href="#proof"
+          >
+            See how it works
+          </a>
+
+        </div>
+
+        <p class="small">
+          One-time purchase • Instant digital download • Excel-based • Personal-use license
+        </p>
+
       </div>
+
 
       <div class="hero-visual">
+
         <div class="cover-card">
-          <img src="assets/shaadi-budget-cover.png" alt="Shaadi Budget Control System product cover">
+
+          <img
+            src="assets/shaadi-budget-cover.png"
+            alt="Shaadi Budget Control System product cover"
+          >
+
         </div>
+
       </div>
+
     </div>
   </section>
 
+
+  <!-- PRODUCT PROOF -->
   <section class="product-proof">
+
     <div class="container proof-grid">
+
       <div>
-        <div class="eyebrow">SEE THE ACTUAL PRODUCT</div>
-        <h2>This is the real Excel system you receive.</h2>
-        <p>The cover introduces the product. The screens below show the actual workbook — including budget, committed amount, paid amount, still-due amount and the control checks used for decisions.</p>
-        <p class="small">Figures shown are illustrative sample entries inside the workbook, not promised savings or market-price claims.</p>
+
+        <div class="eyebrow">
+          SEE THE ACTUAL PRODUCT
+        </div>
+
+        <h2>
+          This is the real Excel system you receive.
+        </h2>
+
+        <p>
+          The cover introduces the product. The screens below show the actual
+          workbook — including budget, committed amount, paid amount,
+          still-due amount and the control checks used for decisions.
+        </p>
+
+        <p class="small">
+          Figures shown are illustrative sample entries inside the workbook,
+          not promised savings or market-price claims.
+        </p>
+
       </div>
+
+
       <div class="image-card proof-image">
-        <img src="assets/dashboard.png" alt="Actual Shaadi Budget Control System Excel dashboard">
+
+        <img
+          src="assets/dashboard.png"
+          alt="Actual Shaadi Budget Control System Excel dashboard"
+        >
+
       </div>
+
     </div>
+
   </section>
 
+
+  <!-- PROBLEM -->
   <section class="dark-section">
+
     <div class="container narrow">
-      <div class="eyebrow light">THE REAL PROBLEM</div>
-      <h2>Wedding expenses don't arrive all at once.</h2>
-      <p>Venue advance. Photographer. Catering. Decor. Makeup. Accommodation. Transport. Gifts. Then dozens of smaller expenses.</p>
-      <p>Soon the budget is scattered across chats, quotes, payment screenshots, notes and spreadsheets.</p>
-      <div class="highlight">The real question isn't only <strong>“How much have we paid?”</strong><br>It's <strong>“How much have we already committed — and how much is actually still available?”</strong></div>
+
+      <div class="eyebrow light">
+        THE REAL PROBLEM
+      </div>
+
+      <h2>
+        Wedding expenses don't arrive all at once.
+      </h2>
+
+      <p>
+        Venue advance. Photographer. Catering. Decor. Makeup.
+        Accommodation. Transport. Gifts. Then dozens of smaller expenses.
+      </p>
+
+      <p>
+        Soon the budget is scattered across chats, quotes, payment screenshots,
+        notes and spreadsheets.
+      </p>
+
+      <div class="highlight">
+
+        The real question isn't only
+        <strong>“How much have we paid?”</strong>
+
+        <br>
+
+        It's
+        <strong>
+          “How much have we already committed — and how much is actually still available?”
+        </strong>
+
+      </div>
+
     </div>
+
   </section>
 
+
+  <!-- VENDOR COMPARISON -->
   <section class="section" id="proof">
+
     <div class="container two-col">
+
       <div>
-        <div class="eyebrow">COMPARE BEFORE YOU BOOK</div>
-        <h2>₹85,000 vs ₹1,05,000. Which vendor is actually cheaper?</h2>
-        <p>A lower headline quote can look attractive until taxes, travel, extra hours, deliverables and payment terms are added.</p>
+
+        <div class="eyebrow">
+          COMPARE BEFORE YOU BOOK
+        </div>
+
+        <h2>
+          ₹85,000 vs ₹1,05,000. Which vendor is actually cheaper?
+        </h2>
+
+        <p>
+          A lower headline quote can look attractive until taxes, travel,
+          extra hours, deliverables and payment terms are added.
+        </p>
+
         <ul class="checklist">
           <li>Base quote</li>
           <li>Taxes / fees</li>
@@ -96,157 +448,657 @@ src="https://www.facebook.com/tr?id=1090516670585672&ev=PageView&noscript=1"
           <li>Deliverables</li>
           <li>Payment & cancellation terms</li>
         </ul>
-        <p class="small">Illustrative example only. Enter your actual written vendor quotes.</p>
+
+        <p class="small">
+          Illustrative example only. Enter your actual written vendor quotes.
+        </p>
+
       </div>
+
+
       <div class="image-card">
-        <img src="assets/vendor-comparator.png" alt="Vendor quote comparator">
+
+        <img
+          src="assets/vendor-comparator.png"
+          alt="Vendor quote comparator"
+        >
+
       </div>
+
     </div>
+
   </section>
 
+
+  <!-- COMMITMENTS -->
   <section class="section soft">
+
     <div class="container two-col">
+
       <div class="image-card">
-        <img src="assets/dashboard.png" alt="Wedding financial control dashboard">
+
+        <img
+          src="assets/dashboard.png"
+          alt="Wedding financial control dashboard"
+        >
+
       </div>
+
+
       <div>
-        <div class="eyebrow">PAID ≠ COMMITTED</div>
-        <h2>Know what you've committed — not just what you've paid.</h2>
-        <p>Paying an advance doesn't mean the rest of the booking disappears.</p>
-        <div class="metrics">
-          <div><span>Budget</span><b>₹15,00,000</b></div>
-          <div><span>Committed</span><b>₹4,55,300</b></div>
-          <div><span>Paid</span><b>₹1,80,000</b></div>
-          <div><span>Still Due</span><b>₹2,75,300</b></div>
+
+        <div class="eyebrow">
+          PAID ≠ COMMITTED
         </div>
-        <p class="strong">See what's left before the next booking.</p>
+
+        <h2>
+          Know what you've committed — not just what you've paid.
+        </h2>
+
+        <p>
+          Paying an advance doesn't mean the rest of the booking disappears.
+        </p>
+
+        <div class="metrics">
+
+          <div>
+            <span>Budget</span>
+            <b>₹15,00,000</b>
+          </div>
+
+          <div>
+            <span>Committed</span>
+            <b>₹4,55,300</b>
+          </div>
+
+          <div>
+            <span>Paid</span>
+            <b>₹1,80,000</b>
+          </div>
+
+          <div>
+            <span>Still Due</span>
+            <b>₹2,75,300</b>
+          </div>
+
+        </div>
+
+        <p class="strong">
+          See what's left before the next booking.
+        </p>
+
       </div>
+
     </div>
+
   </section>
 
+
+  <!-- SCENARIO -->
   <section class="section">
+
     <div class="container two-col">
+
       <div>
-        <div class="eyebrow">SEE THE COST BEFORE YOU DECIDE</div>
-        <h2>What if you reduce the guest list by 50?</h2>
-        <p>Compare guest count, venue cost, catering rate, accommodation and other fixed costs before changing the plan.</p>
-        <p>Instead of guessing, see the financial difference side-by-side.</p>
-        <p class="small">Sample assumptions are placeholders for your own written estimates.</p>
+
+        <div class="eyebrow">
+          SEE THE COST BEFORE YOU DECIDE
+        </div>
+
+        <h2>
+          What if you reduce the guest list by 50?
+        </h2>
+
+        <p>
+          Compare guest count, venue cost, catering rate, accommodation
+          and other fixed costs before changing the plan.
+        </p>
+
+        <p>
+          Instead of guessing, see the financial difference side-by-side.
+        </p>
+
+        <p class="small">
+          Sample assumptions are placeholders for your own written estimates.
+        </p>
+
       </div>
+
+
       <div class="image-card">
-        <img src="assets/scenario-planner.png" alt="Wedding scenario planner">
+
+        <img
+          src="assets/scenario-planner.png"
+          alt="Wedding scenario planner"
+        >
+
       </div>
+
     </div>
+
   </section>
 
+
+  <!-- WHAT YOU GET -->
   <section class="section soft">
+
     <div class="container">
-      <div class="eyebrow center">WHAT YOU GET</div>
-      <h2 class="center">A wedding financial decision system — not just a checklist.</h2>
-      <div class="cards">
-        <article><h3>Budget Builder</h3><p>Set category-wise spending ceilings.</p></article>
-        <article><h3>Vendor Comparator</h3><p>Compare true comparable costs and terms.</p></article>
-        <article><h3>Vendor Scorecard</h3><p>Structure decisions beyond price alone.</p></article>
-        <article><h3>Commitments Tracker</h3><p>Track booked, paid and still-due amounts.</p></article>
-        <article><h3>Payment Calendar</h3><p>See upcoming and overdue payments.</p></article>
-        <article><h3>Scenario Planner</h3><p>Compare cost scenarios before deciding.</p></article>
-        <article><h3>Negotiation Prep</h3><p>Clarify limits, must-haves and questions.</p></article>
-        <article><h3>Financial Dashboard</h3><p>See the overall position in one place.</p></article>
+
+      <div class="eyebrow center">
+        WHAT YOU GET
       </div>
+
+      <h2 class="center">
+        A wedding financial decision system — not just a checklist.
+      </h2>
+
+
+      <div class="cards">
+
+        <article>
+          <h3>Budget Builder</h3>
+          <p>Set category-wise spending ceilings.</p>
+        </article>
+
+        <article>
+          <h3>Vendor Comparator</h3>
+          <p>Compare true comparable costs and terms.</p>
+        </article>
+
+        <article>
+          <h3>Vendor Scorecard</h3>
+          <p>Structure decisions beyond price alone.</p>
+        </article>
+
+        <article>
+          <h3>Commitments Tracker</h3>
+          <p>Track booked, paid and still-due amounts.</p>
+        </article>
+
+        <article>
+          <h3>Payment Calendar</h3>
+          <p>See upcoming and overdue payments.</p>
+        </article>
+
+        <article>
+          <h3>Scenario Planner</h3>
+          <p>Compare cost scenarios before deciding.</p>
+        </article>
+
+        <article>
+          <h3>Negotiation Prep</h3>
+          <p>Clarify limits, must-haves and questions.</p>
+        </article>
+
+        <article>
+          <h3>Financial Dashboard</h3>
+          <p>See the overall position in one place.</p>
+        </article>
+
+      </div>
+
     </div>
+
   </section>
 
+
+  <!-- AUDIENCE -->
   <section class="section">
+
     <div class="container audience-grid">
+
       <div class="audience-card">
-        <div class="eyebrow">WHO IT'S FOR</div>
-        <h2>Couples and families managing the wedding themselves.</h2>
+
+        <div class="eyebrow">
+          WHO IT'S FOR
+        </div>
+
+        <h2>
+          Couples and families managing the wedding themselves.
+        </h2>
+
         <ul class="checklist">
           <li>Actively planning an Indian wedding</li>
           <li>Comparing several vendors</li>
           <li>Tracking commitments and payments</li>
           <li>Wanting one clear financial view</li>
         </ul>
+
       </div>
+
+
       <div class="audience-card">
-        <div class="eyebrow">NOT IDEAL IF</div>
-        <h2>You only need a generic checklist.</h2>
+
+        <div class="eyebrow">
+          NOT IDEAL IF
+        </div>
+
+        <h2>
+          You only need a generic checklist.
+        </h2>
+
         <ul class="dashlist">
           <li>A full-service planner handles everything</li>
           <li>You don't want to update your own numbers</li>
           <li>You expect automatic vendor pricing</li>
           <li>You expect guaranteed savings</li>
         </ul>
+
       </div>
+
     </div>
+
   </section>
 
+
+  <!-- PRICING -->
   <section class="pricing" id="pricing">
+
     <div class="container narrow">
+
       <div class="price-card">
-        <div class="eyebrow center">ONE-TIME PURCHASE</div>
-        <h2>Shaadi Budget Control System</h2>
-        <div class="price">₹599</div>
-        <p>Excel workbook + Quick Start & Decision Guide + Personal-use license</p>
-        <a class="btn primary full" href="https://payhip.com/buy?link=aXrN8">Get Instant Access — ₹599</a>
-        <p class="small">Digital product • No fake scarcity • No guaranteed savings claims</p>
+
+        <div class="eyebrow center">
+          LIMITED LAUNCH OFFER
+        </div>
+
+        <h2>
+          Shaadi Budget Control System
+        </h2>
+
+
+        <div class="pricing-offer">
+
+          <span class="pricing-regular">
+            ₹1,499
+          </span>
+
+          <span class="pricing-discount">
+            60% OFF
+          </span>
+
+        </div>
+
+
+        <div class="price">
+          ₹599
+        </div>
+
+        <p>
+          Excel workbook + Quick Start & Decision Guide + Personal-use license
+        </p>
+
+        <div
+          class="offer-countdown"
+          style="justify-content:center; margin-bottom:18px;"
+        >
+
+          <span class="countdown-label">
+            Launch offer ends in:
+          </span>
+
+          <span class="countdown-box">
+            <span class="timer-days">00</span>d
+          </span>
+
+          <span class="countdown-box">
+            <span class="timer-hours">00</span>h
+          </span>
+
+          <span class="countdown-box">
+            <span class="timer-minutes">00</span>m
+          </span>
+
+          <span class="countdown-box">
+            <span class="timer-seconds">00</span>s
+          </span>
+
+        </div>
+
+
+        <a
+          class="btn primary full"
+          href="https://payhip.com/buy?link=aXrN8"
+        >
+          Get Instant Access — ₹599
+        </a>
+
+        <p class="small">
+          One-Time Payment • Instant Digital Download • Personal-use license
+        </p>
+
       </div>
+
     </div>
+
   </section>
 
+
+  <!-- FAQ -->
   <section class="section">
+
     <div class="container narrow">
-      <div class="eyebrow center">FAQ</div>
-      <h2 class="center">Before you buy</h2>
+
+      <div class="eyebrow center">
+        FAQ
+      </div>
+
+      <h2 class="center">
+        Before you buy
+      </h2>
+
 
       <details>
-        <summary>Is this a wedding planner?</summary>
-        <p>It focuses on the financial and vendor-decision side of wedding planning, rather than inspiration or event styling.</p>
+
+        <summary>
+          Is this a wedding planner?
+        </summary>
+
+        <p>
+          It focuses on the financial and vendor-decision side of wedding
+          planning, rather than inspiration or event styling.
+        </p>
+
       </details>
+
+
       <details>
-        <summary>Does it automatically know wedding prices?</summary>
-        <p>No. You enter your own budget and actual vendor quotes.</p>
+
+        <summary>
+          Does it automatically know wedding prices?
+        </summary>
+
+        <p>
+          No. You enter your own budget and actual vendor quotes.
+        </p>
+
       </details>
+
+
       <details>
-        <summary>Will this guarantee savings?</summary>
-        <p>No. It helps make costs, commitments and trade-offs visible. Actual results depend on your decisions and vendors.</p>
+
+        <summary>
+          Will this guarantee savings?
+        </summary>
+
+        <p>
+          No. It helps make costs, commitments and trade-offs visible.
+          Actual results depend on your decisions and vendors.
+        </p>
+
       </details>
+
+
       <details>
-        <summary>Do I need advanced Excel skills?</summary>
-        <p>No. The formulas are built in. You mainly enter and update your wedding information.</p>
+
+        <summary>
+          Do I need advanced Excel skills?
+        </summary>
+
+        <p>
+          No. The formulas are built in. You mainly enter and update
+          your wedding information.
+        </p>
+
       </details>
+
+
       <details>
-        <summary>Can I resell it?</summary>
-        <p>No. It is licensed for personal use and cannot be resold or redistributed.</p>
+
+        <summary>
+          Can I resell it?
+        </summary>
+
+        <p>
+          No. It is licensed for personal use and cannot be resold
+          or redistributed.
+        </p>
+
       </details>
+
     </div>
+
   </section>
 
+
+  <!-- FINAL CTA -->
   <section class="final">
+
     <div class="container narrow center">
-      <h2>Before your next vendor booking...</h2>
-      <p>Know what you've budgeted, what you've committed, what's already paid, what's still due, and what's actually left.</p>
-      <a class="btn primary" href="https://payhip.com/buy?link=aXrN8">Get the System — ₹599</a>
+
+      <div class="eyebrow light">
+        60% LAUNCH DISCOUNT
+      </div>
+
+      <h2>
+        Before your next vendor booking...
+      </h2>
+
+      <p>
+        Know what you've budgeted, what you've committed, what's already paid,
+        what's still due, and what's actually left.
+      </p>
+
+      <p>
+        <span style="text-decoration:line-through; opacity:.7;">
+          ₹1,499
+        </span>
+
+        &nbsp;
+
+        <strong style="font-size:1.35em;">
+          ₹599
+        </strong>
+
+        &nbsp; • &nbsp;
+
+        <strong>
+          60% OFF
+        </strong>
+      </p>
+
+      <a
+        class="btn primary"
+        href="https://payhip.com/buy?link=aXrN8"
+      >
+        Get the System — ₹599
+      </a>
+
     </div>
+
   </section>
+
 </main>
 
+
 <footer>
+
   <div class="container footer-row">
+
     <div>
-      <strong>Velqora Digital</strong>
-      <p>Digital planning tools for practical decisions.</p>
+
+      <strong>
+        Velqora Digital
+      </strong>
+
+      <p>
+        Digital planning tools for practical decisions.
+      </p>
+
     </div>
+
+
     <div class="footer-links">
-      <a href="../privacy.html">Privacy</a>
-      <a href="../refunds.html">Refunds</a>
-      <a href="../terms.html">Terms</a>
-      <a href="../contact.html">Contact</a>
+
+      <a href="../privacy.html">
+        Privacy
+      </a>
+
+      <a href="../refunds.html">
+        Refunds
+      </a>
+
+      <a href="../terms.html">
+        Terms
+      </a>
+
+      <a href="../contact.html">
+        Contact
+      </a>
+
     </div>
+
   </div>
-  <div class="container legal">Illustrative examples are for demonstration only. Verify quotes, taxes, contracts and payment terms independently.</div>
+
+
+  <div class="container legal">
+    Illustrative examples are for demonstration only.
+    Verify quotes, taxes, contracts and payment terms independently.
+  </div>
+
 </footer>
 
+
 <script src="script.js"></script>
+
+<!-- Fixed Launch Countdown -->
+<script>
+
+  /*
+    Genuine fixed launch deadline.
+    This does NOT reset when the visitor refreshes the page.
+
+    Deadline:
+    27 August 2026
+    11:59:59 PM IST
+  */
+
+  const launchDeadline =
+    new Date("2026-08-27T23:59:59+05:30").getTime();
+
+
+  function updateLaunchCountdown() {
+
+    const now = new Date().getTime();
+
+    const distance =
+      launchDeadline - now;
+
+
+    let days = 0;
+    let hours = 0;
+    let minutes = 0;
+    let seconds = 0;
+
+
+    if (distance > 0) {
+
+      days = Math.floor(
+        distance / (1000 * 60 * 60 * 24)
+      );
+
+      hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+      );
+
+      minutes = Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+      );
+
+      seconds = Math.floor(
+        (distance % (1000 * 60))
+        / 1000
+      );
+
+    }
+
+
+    const pad =
+      value => String(value).padStart(2, "0");
+
+
+    const heroDays =
+      document.getElementById("days");
+
+    const heroHours =
+      document.getElementById("hours");
+
+    const heroMinutes =
+      document.getElementById("minutes");
+
+    const heroSeconds =
+      document.getElementById("seconds");
+
+
+    if (heroDays) {
+      heroDays.textContent = pad(days);
+    }
+
+    if (heroHours) {
+      heroHours.textContent = pad(hours);
+    }
+
+    if (heroMinutes) {
+      heroMinutes.textContent = pad(minutes);
+    }
+
+    if (heroSeconds) {
+      heroSeconds.textContent = pad(seconds);
+    }
+
+
+    document
+      .querySelectorAll(".timer-days")
+      .forEach(
+        el => el.textContent = pad(days)
+      );
+
+    document
+      .querySelectorAll(".timer-hours")
+      .forEach(
+        el => el.textContent = pad(hours)
+      );
+
+    document
+      .querySelectorAll(".timer-minutes")
+      .forEach(
+        el => el.textContent = pad(minutes)
+      );
+
+    document
+      .querySelectorAll(".timer-seconds")
+      .forEach(
+        el => el.textContent = pad(seconds)
+      );
+
+
+    if (distance <= 0) {
+
+      document
+        .querySelectorAll(".countdown-label")
+        .forEach(
+          el => el.textContent =
+            "Launch offer deadline reached"
+        );
+
+      clearInterval(countdownTimer);
+
+    }
+
+  }
+
+
+  updateLaunchCountdown();
+
+  const countdownTimer =
+    setInterval(
+      updateLaunchCountdown,
+      1000
+    );
+
+</script>
+
 </body>
 </html>
