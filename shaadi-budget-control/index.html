@@ -235,25 +235,17 @@
         </div>
 
 
-        <!-- LAUNCH OFFER -->
+        <!-- ONE-TIME PRICE -->
         <div class="launch-offer">
 
           <div class="launch-label">
-            Limited Launch Offer
+            One-Time Price
           </div>
 
           <div class="offer-price-row">
 
-            <span class="regular-price">
-              ₹1,499
-            </span>
-
             <span class="launch-price">
               ₹599
-            </span>
-
-            <span class="discount-badge">
-              60% OFF
             </span>
 
           </div>
@@ -261,34 +253,6 @@
           <p class="offer-meta">
             One-Time Payment • Instant Digital Download
           </p>
-
-          <div class="offer-countdown">
-
-            <span class="countdown-label">
-              Launch offer ends in:
-            </span>
-
-            <span class="countdown-box">
-              <span id="days">00</span>d
-            </span>
-
-            <span class="countdown-box">
-              <span id="hours">00</span>h
-            </span>
-
-            <span class="countdown-box">
-              <span id="minutes">00</span>m
-            </span>
-
-            <span class="countdown-box">
-              <span id="seconds">00</span>s
-            </span>
-
-          </div>
-
-          <div class="offer-end-note">
-            Offer deadline: 27 August 2026, 11:59 PM IST
-          </div>
 
         </div>
 
@@ -699,25 +663,12 @@
       <div class="price-card">
 
         <div class="eyebrow center">
-          LIMITED LAUNCH OFFER
+          ONE-TIME PRICE
         </div>
 
         <h2>
           Shaadi Budget Control System
         </h2>
-
-
-        <div class="pricing-offer">
-
-          <span class="pricing-regular">
-            ₹1,499
-          </span>
-
-          <span class="pricing-discount">
-            60% OFF
-          </span>
-
-        </div>
 
 
         <div class="price">
@@ -727,33 +678,6 @@
         <p>
           Excel workbook + Quick Start & Decision Guide + Personal-use license
         </p>
-
-        <div
-          class="offer-countdown"
-          style="justify-content:center; margin-bottom:18px;"
-        >
-
-          <span class="countdown-label">
-            Launch offer ends in:
-          </span>
-
-          <span class="countdown-box">
-            <span class="timer-days">00</span>d
-          </span>
-
-          <span class="countdown-box">
-            <span class="timer-hours">00</span>h
-          </span>
-
-          <span class="countdown-box">
-            <span class="timer-minutes">00</span>m
-          </span>
-
-          <span class="countdown-box">
-            <span class="timer-seconds">00</span>s
-          </span>
-
-        </div>
 
 
         <a
@@ -867,7 +791,7 @@
     <div class="container narrow center">
 
       <div class="eyebrow light">
-        60% LAUNCH DISCOUNT
+        ONE-TIME PRICE
       </div>
 
       <h2>
@@ -880,12 +804,6 @@
       </p>
 
       <p>
-        <span style="text-decoration:line-through; opacity:.7;">
-          ₹1,499
-        </span>
-
-        &nbsp;
-
         <strong style="font-size:1.35em;">
           ₹599
         </strong>
@@ -893,7 +811,7 @@
         &nbsp; • &nbsp;
 
         <strong>
-          60% OFF
+          One-Time Payment
         </strong>
       </p>
 
@@ -961,144 +879,7 @@
 
 <script src="script.js"></script>
 
-<!-- Fixed Launch Countdown -->
-<script>
 
-  /*
-    Genuine fixed launch deadline.
-    This does NOT reset when the visitor refreshes the page.
-
-    Deadline:
-    27 August 2026
-    11:59:59 PM IST
-  */
-
-  const launchDeadline =
-    new Date("2026-08-27T23:59:59+05:30").getTime();
-
-
-  function updateLaunchCountdown() {
-
-    const now = new Date().getTime();
-
-    const distance =
-      launchDeadline - now;
-
-
-    let days = 0;
-    let hours = 0;
-    let minutes = 0;
-    let seconds = 0;
-
-
-    if (distance > 0) {
-
-      days = Math.floor(
-        distance / (1000 * 60 * 60 * 24)
-      );
-
-      hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24))
-        / (1000 * 60 * 60)
-      );
-
-      minutes = Math.floor(
-        (distance % (1000 * 60 * 60))
-        / (1000 * 60)
-      );
-
-      seconds = Math.floor(
-        (distance % (1000 * 60))
-        / 1000
-      );
-
-    }
-
-
-    const pad =
-      value => String(value).padStart(2, "0");
-
-
-    const heroDays =
-      document.getElementById("days");
-
-    const heroHours =
-      document.getElementById("hours");
-
-    const heroMinutes =
-      document.getElementById("minutes");
-
-    const heroSeconds =
-      document.getElementById("seconds");
-
-
-    if (heroDays) {
-      heroDays.textContent = pad(days);
-    }
-
-    if (heroHours) {
-      heroHours.textContent = pad(hours);
-    }
-
-    if (heroMinutes) {
-      heroMinutes.textContent = pad(minutes);
-    }
-
-    if (heroSeconds) {
-      heroSeconds.textContent = pad(seconds);
-    }
-
-
-    document
-      .querySelectorAll(".timer-days")
-      .forEach(
-        el => el.textContent = pad(days)
-      );
-
-    document
-      .querySelectorAll(".timer-hours")
-      .forEach(
-        el => el.textContent = pad(hours)
-      );
-
-    document
-      .querySelectorAll(".timer-minutes")
-      .forEach(
-        el => el.textContent = pad(minutes)
-      );
-
-    document
-      .querySelectorAll(".timer-seconds")
-      .forEach(
-        el => el.textContent = pad(seconds)
-      );
-
-
-    if (distance <= 0) {
-
-      document
-        .querySelectorAll(".countdown-label")
-        .forEach(
-          el => el.textContent =
-            "Launch offer deadline reached"
-        );
-
-      clearInterval(countdownTimer);
-
-    }
-
-  }
-
-
-  updateLaunchCountdown();
-
-  const countdownTimer =
-    setInterval(
-      updateLaunchCountdown,
-      1000
-    );
-
-</script>
 
 </body>
 </html>
